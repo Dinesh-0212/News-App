@@ -1,5 +1,4 @@
 package com.first.madproject;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,9 +7,7 @@ import android.widget.TextView;
 
 import com.first.madproject.Models.NewHeadLines;
 import com.squareup.picasso.Picasso;
-
 public class DetailsActivity extends AppCompatActivity {
-
     NewHeadLines headLines;
     TextView txt_title,txt_author,txt_time,txt_detail,txt_content;
     ImageView img_news;
@@ -25,7 +22,6 @@ public class DetailsActivity extends AppCompatActivity {
         txt_content=findViewById(R.id.text_detail_content);
         img_news=findViewById(R.id.img_detail_news);
         headLines= (NewHeadLines) getIntent().getSerializableExtra("data");
-
         txt_title.setText(headLines.getTitle());
         txt_author.setText(headLines.getAuthor());
         txt_time.setText(headLines.getPublishedAt());

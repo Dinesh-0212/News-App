@@ -1,5 +1,4 @@
 package com.first.madproject;
-
 import android.content.Context;
 import android.widget.Toast;
 
@@ -12,7 +11,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-
 public class RequestManager {
     Context context;
     Retrofit retrofit=new Retrofit.Builder()
@@ -28,15 +26,12 @@ public class RequestManager {
                 @Override
                 public void onResponse(Call<NewsApiResponse> call, Response<NewsApiResponse> response) {
                     if(response.isSuccessful()){
-                        Toast.makeText(context, "Error!!", Toast.LENGTH_SHORT).show();
                     }
                     listener.onFetchData(response.body().getArticles(), response.message());
                 }
-
                 @Override
                 public void onFailure(Call<NewsApiResponse> call, Throwable t) {
                     listener.onError("Request Failed");
-
                 }
             });
         }
@@ -45,7 +40,6 @@ public class RequestManager {
             e.printStackTrace();
         }
     }
-
     public RequestManager(Context context) {
         this.context = context;
     }

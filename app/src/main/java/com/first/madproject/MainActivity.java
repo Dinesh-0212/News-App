@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
                 manager.getNewsHeadlines(listener,"general",query);
                 return true;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         b6.setOnClickListener(this);
         b7=findViewById(R.id.btn_7);
         b7.setOnClickListener(this);
-
         RequestManager manager=new RequestManager(this);
         manager.getNewsHeadlines(listener,"general",null);
     }
@@ -74,9 +72,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
                 showNews(list);
                 dialog.dismiss();
             }
-
         }
-
         @Override
         public void onError(String message) {
             Toast.makeText(MainActivity.this, "An error occured!!!", Toast.LENGTH_SHORT).show();
@@ -89,18 +85,16 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         adapter=new CustomAdapter(this,list,this);
         recyclerView.setAdapter(adapter);
     }
-
     @Override
     public void OnNewsClicked(NewHeadLines headlines) {
         startActivity(new Intent(MainActivity.this,DetailsActivity.class)
                 .putExtra("data",headlines));
     }
-
     @Override
     public void onClick(View view) {
         Button button=(Button) view;
         String category=button.getText().toString();
-        dialog.setTitle("Fetching news articles of"+category);
+        dialog.setTitle("Fetching news articles of "+category);
         dialog.show();
         RequestManager manager=new RequestManager(this);
         manager.getNewsHeadlines(listener,category,null);
